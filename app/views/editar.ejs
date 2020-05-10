@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <%- include("./include/head.ejs", {title:"Editar"}) -%>
+    <body>
+        
+        <form method="POST" action="/games/editar?_method=PUT">
+            <input type="text" name="indice" value="<%= indice %>" hidden>
+            <h1>Edita jogo</h1>
+            <div class="form-group">
+              <label>Nome do jogo</label>
+              <input type="text" class="form-control" name="nomeJogo" value="<%= jogo.nome %>">
+            </div>
+            <div class="form-group">
+              <label>Preço</label>
+              <input type="number" class="form-control" name="precoJogo" value="<%= jogo.preco %>">
+            </div>
+            <button type="submit" class="btn btn-primary">Editar</button>
+        </form>
+        <%- include("./include/scripts.ejs") -%>
+    </body>
+</html>
