@@ -3,7 +3,7 @@
     <%- include("./include/head.ejs", {title:"Cadastrar"}) -%>
     <body>
         
-        <form method="POST" action="/games/cadastrar">
+        <form method="POST" action="/games/cadastrar" enctype="multipart/form-data">
             <h1>Cadastra jogo</h1>
             <div class="form-group">
               <label>Nome do jogo</label>
@@ -12,6 +12,10 @@
             <div class="form-group">
               <label>Preço</label>
               <input type="number" class="form-control" name="precoJogo">
+            </div>
+            <div class="form-group">
+              <label for="capaJogo">Capa do jogo</label>
+              <input type="file" id="capaJogo" name="capaJogo">
             </div>
             <button type="submit" class="btn btn-primary">Cadastrar</button>
         </form>

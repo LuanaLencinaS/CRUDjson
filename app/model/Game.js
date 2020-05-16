@@ -5,7 +5,7 @@ const caminho = path.join("jogos.json")
 //pega caminho do arquivo
 
 //CREATE
-function cadastrar(nome, preco){
+function cadastrar(nome, preco, img){
     let conteudoJogos = fs.readFileSync(caminho, {
         encoding: 'utf-8'
     })
@@ -17,7 +17,8 @@ function cadastrar(nome, preco){
     jogos.push(
         {
             nome, 
-            preco
+            preco,
+            img
         })
     //adiciona um jogo À variável jogos
 
@@ -58,12 +59,13 @@ function exibeJogo(indice){
     return jogo;
 }
 
-function editarJogo(indice, nome, preco){
+function editarJogo(indice, nome, preco, img){
     let jogos = listarJogos();
 
     jogos[indice] = {
         nome, 
-        preco
+        preco,
+        img
     }
 
     let jogosJSON = JSON.stringify(jogos)

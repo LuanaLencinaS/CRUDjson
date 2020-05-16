@@ -33,7 +33,8 @@ let gamesController = {
     store: (req, res) => {
         //realiza cadastro
         let {nomeJogo, precoJogo} = req.body
-        Game.cadastrar(nomeJogo, precoJogo);
+        let img = req.files[0].filename;
+        Game.cadastrar(nomeJogo, precoJogo, img);
         res.redirect("/games/ver")
     },
 
@@ -48,7 +49,8 @@ let gamesController = {
     update: (req, res) => {
         //realiza edição
         let {indice, nomeJogo, precoJogo} = req.body
-        Game.editarJogo(indice, nomeJogo, precoJogo);
+        let img = req.files[0].filename;
+        Game.editarJogo(indice, nomeJogo, precoJogo, img);
         res.redirect("/games/ver");
     },
 

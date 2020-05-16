@@ -3,7 +3,7 @@
     <%- include("./include/head.ejs", {title:"Editar"}) -%>
     <body>
         
-        <form method="POST" action="/games/editar?_method=PUT">
+        <form method="POST" action="/games/editar?_method=PUT" enctype="multipart/form-data">
             <input type="text" name="indice" value="<%= indice %>" hidden>
             <h1>Edita jogo</h1>
             <div class="form-group">
@@ -13,6 +13,10 @@
             <div class="form-group">
               <label>Preço</label>
               <input type="number" class="form-control" name="precoJogo" value="<%= jogo.preco %>">
+            </div>
+            <div class="form-group">
+              <label for="capaJogo">Capa do jogo</label>
+              <input type="file" id="capaJogo" name="capaJogo">
             </div>
             <button type="submit" class="btn btn-primary">Editar</button>
         </form>
