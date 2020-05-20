@@ -48,11 +48,13 @@ let gamesController = {
     },
     update: (req, res) => {
         //realiza edição
-        let {indice, nomeJogo, precoJogo} = req.body
+        let {indice, nomeJogo, precoJogo} = req.body;
+        
         let img = req.files[0].filename;
+        
         Game.editarJogo(indice, nomeJogo, precoJogo, img);
         res.redirect("/games/ver");
-    },
+    }, 
 
     //DELETE
     destroy: (req, res) => {

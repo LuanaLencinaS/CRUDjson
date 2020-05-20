@@ -2,7 +2,8 @@ const express = require('express');
 const multer = require('multer');
 const path = require('path');
 
-const gamesController = require('../controller/gamesController')
+const gamesController = require('../controller/gamesController');
+const logDBmiddleware = require('../middleware/logDB');
 
 var storage = multer.diskStorage({
         destination: function (req, file, cb){
@@ -27,7 +28,7 @@ router.get("/ver", gamesController.index)
 //create
 router.get("/cadastrar", gamesController.create);
 //localhost3111/games/cadastrar
-router.post("/cadastrar", upload.any(), gamesController.store);
+router.post("/cadastrar", upload.any(), logDBmiddleware, gamesController.store);
 
 //update
 router.get("/editar/:i", gamesController.edit)
